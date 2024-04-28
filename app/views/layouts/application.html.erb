@@ -11,6 +11,13 @@
   </head>
 
   <body>
+<nav>
+  <ul>
+    <% if signed_in? %>
+      <li><%= link_to 'Logout', logout_path, method: :delete %></li>
+    <% end %>
+  </ul>
+</nav>
     <main>
       <%= yield %>
     </main>
