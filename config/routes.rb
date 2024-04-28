@@ -1,6 +1,15 @@
 Rails.application.routes.draw do
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  # Photosのリソースに対するRESTfulなルーティング
+  resources :photos, only: [:new, :create, :index, :destroy]
 
-  # Defines the root path route ("/")
-  # root "articles#index"
+  # Usersのリソースに対するRESTfulなルーティング
+  resources :users, only: [:new, :create, :destroy]
+
+  # ログインとログアウトに関するルーティング
+  get '/login', to: 'sessions#new'
+  post '/login', to: 'sessions#create'
+  delete '/logout', to: 'sessions#destroy'
+
+  # ルートパスの定義
+  root "photos#index"
 end
