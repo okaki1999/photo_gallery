@@ -1,2 +1,5 @@
-<h1>Photos#index</h1>
-<p>Find me in app/views/photos/index.html.erb</p>
+<p>写真一覧</p>
+<% @photos.each do |photo| %>
+<%= photo.title %><br>
+<%= image_tag "/photo_images/#{photo.id}.jpg", width: 100, height: 100 %><br>
+<% end %>

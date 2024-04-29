@@ -1,8 +1,5 @@
 Rails.application.routes.draw do
-  # Photosのリソースに対するRESTfulなルーティング
-  resources :photos, only: [:new, :create, :index, :destroy]
-
-  # Usersのリソースに対するRESTfulなルーティング
+  resources :photos, only: [:new, :create, :index,:destroy]
   resources :users, only: [:new, :create, :destroy]
 
   # ログインとログアウトに関するルーティング
@@ -11,6 +8,5 @@ Rails.application.routes.draw do
   delete '/logout', to: 'sessions#destroy'
   get '/logout', to: 'sessions#destroy' 
 
-  # ルートパスの定義
   root "photos#index"
 end

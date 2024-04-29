@@ -1,2 +1,8 @@
 <h1>Photos#create</h1>
 <p>Find me in app/views/photos/create.html.erb</p>
+<%= form_tag(upload_process_path, method: 'post', multipart: true) do %>
+  <label>
+    <%= file_field_tag :upfile %>
+  </label>
+  <%= submit_tag 'アップロード' %>
+<% end %>
