@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+    before_action :redirect_logged_in_user, only: [:new, :create]
     skip_before_action :require_sign_in!, only: [:new, :create]
     before_action :set_user, only: [:create]
   
@@ -22,16 +23,18 @@ class SessionsController < ApplicationController
   
     private
   
-      def set_user
-        @user = User.find_by!(email: session_params[:email])
-      rescue
-        flash.now[:danger] = t('.flash.invalid_mail')
-        render action: 'new'
-      end
+    def set_user
+      @user = User.find_by!(email: session_params[:email])
+    rescue
+      flash.now[:danger] = t('.flash.invalid_mail')
+      render action: 'new'
+    end
   
-      # 許可するパラメータ
-      def session_params
-        params.require(:session).permit(:email, :password)
-      end
-end
+    def redirect_logged_in_user
+      redirect_to root_path if signed_in?
+    end
   
+    def session_params
+      params.require(:session).permit(:email, :password)
+    end
+  end
