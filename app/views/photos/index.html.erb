@@ -1,5 +1,5 @@
-<p>写真一覧</p>
+<h1>写真一覧</h1>
 <% @photos.each do |photo| %>
-<%= photo.title %><br>
-<%= image_tag "/photo_images/#{photo.id}.jpg", width: 100, height: 100 %><br>
+タイトル：<%= photo.title %><br>
+<%= image_tag "/photo_images/#{photo.id}.jpg", width: 300, height: 300 %><br>
 <% end %>
