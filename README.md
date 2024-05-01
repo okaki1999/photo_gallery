@@ -11,6 +11,7 @@ bcrypt 3.1.7
 
 
 # clone方法
+
 GitHubからアプリをcloneします。
 ``` git clone https://github.com/okaki1999/photo_gallery.git ```
 
