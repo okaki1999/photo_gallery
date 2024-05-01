@@ -7,8 +7,8 @@ bcrypt 3.1.7
 
 
 # clone方法
-``` git clone https://github.com/okaki1999/photo_gallery.git
-bundle install ``` 
+``` git clone https://github.com/okaki1999/photo_gallery.git ```
+``` bundle install ```
 
 master.keyについては別途ご連絡いただけると幸いです。
 
